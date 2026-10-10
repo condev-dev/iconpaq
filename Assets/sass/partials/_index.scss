@@ -89,37 +89,53 @@ main {
   }
 
   .List_Title {
-    color: var(--ip-text);
-    display: block;
+    align-items: center;
+    color: var(--ip-text-soft);
+    display: flex;
     font-family: $font-display;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
-    margin: 0 0 8px 2px;
+    letter-spacing: 0.08em;
+    margin: 0 0 10px 4px;
+    text-transform: uppercase;
+
+    i {
+      color: var(--ip-accent) !important;
+      font-size: 10px;
+      margin-left: 0 !important;
+      margin-right: 8px !important;
+    }
   }
 
   #Category_List {
     background-color: var(--ip-surface) !important;
+    border-radius: 12px;
     overflow: visible;
+    padding: 6px;
   }
 
   .Switch {
+    align-items: center;
     background-color: transparent !important;
     border: 0 !important;
-    border-radius: $radius-sm;
+    border-radius: 8px;
     color: var(--ip-text) !important;
     cursor: pointer;
+    display: flex;
     font-size: 13px;
-    margin-bottom: 3px;
-    padding: 9px 12px 9px 28px !important;
+    font-weight: 500;
+    justify-content: space-between;
+    margin-bottom: 2px;
+    padding: 9px 10px 9px 26px !important;
     position: relative;
     transition: background-color $transition, color $transition;
 
     &::before {
       background-color: var(--ip-text-soft);
-      border-radius: 50%;
+      border-radius: 999px;
       content: "";
       height: 6px;
-      left: 13px;
+      left: 11px;
       margin-top: -3px;
       position: absolute;
       top: 50%;
@@ -127,28 +143,50 @@ main {
       width: 6px;
     }
 
+    /* The count comes from data-count, so the label text stays clean and the
+       filter can keep matching on it. */
+    &::after {
+      color: var(--ip-text-soft);
+      content: attr(data-count);
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      margin-left: 8px;
+      transition: color $transition;
+    }
+
     &:hover {
       background-color: var(--ip-accent-soft) !important;
       color: var(--ip-accent) !important;
+
+      &::before {
+        background-color: var(--ip-accent);
+      }
     }
 
     &.NewGray {
       background-color: var(--ip-accent) !important;
+      box-shadow: 0 6px 14px rgba(104, 90, 211, 0.28);
       color: var(--ip-on-accent) !important;
       font-weight: 600;
 
       &::before {
         background-color: var(--ip-on-accent);
-        transform: scale(1.3);
+        transform: scale(1.25);
+      }
+
+      &::after {
+        color: var(--ip-on-accent);
+        opacity: 0.8;
       }
     }
   }
 
   #Category_List .Switch:first-child {
     border-bottom: 1px solid var(--ip-border) !important;
-    border-radius: $radius-sm $radius-sm 0 0;
-    margin-bottom: 8px;
-    padding-bottom: 14px !important;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 6px;
+    padding-bottom: 12px !important;
   }
 
   .Reset_Button {
@@ -425,24 +463,32 @@ main {
   }
 }
 
+/* Thumbnails flow in one row and never scroll: auto-fit caps them at 54px and
+   shrinks them when the preview column is narrow, so two, three or four styles
+   all sit centered. Five and six (rare) simply wrap to a second row. */
 .Icon_Variants {
-  gap: 10px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(34px, 54px));
+  justify-content: center;
   padding: 6px 2px;
 
   .Item-Carousel {
     align-items: center;
+    aspect-ratio: 1 / 1;
     background-color: var(--ip-surface);
     border: 1px solid transparent;
-    border-radius: 14px;
+    border-radius: 12px;
     display: flex;
-    flex: 0 0 auto;
-    height: 54px;
     justify-content: center;
+    min-width: 0;
     transition: background-color $transition, border-color $transition, transform $transition;
-    width: 54px;
+    width: 100%;
 
     svg {
       height: 26px;
+      max-height: 100%;
+      max-width: 100%;
       width: 26px;
     }
 

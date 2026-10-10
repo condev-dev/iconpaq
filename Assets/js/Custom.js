@@ -241,6 +241,20 @@
     });
   }
 
+  /* The counts are rendered by CSS through attr(data-count), so the label text
+     itself stays untouched and the filter can still match on it. */
+  function setCategoryCounts() {
+    var totals = {};
+    cards.forEach(function (card) {
+      totals[card.category] = (totals[card.category] || 0) + 1;
+    });
+    qsa("#Category_List .Switch").forEach(function (item) {
+      var name = item.textContent.trim();
+      var total = name === ALL_CATEGORIES ? cards.length : totals[name] || 0;
+      item.setAttribute("data-count", String(total));
+    });
+  }
+
   function applyFilters() {
     var search = qs("#searchInput");
     var query = (search ? search.value : "").trim().toUpperCase();
@@ -582,8 +596,14 @@
     if (!handler) {
       return;
     }
+    /* Only placeholder links are swallowed so the action can drive the UI.
+       Real links must keep their default navigation — the menu items are
+       anchors, and cancelling them stopped every one of them from opening. */
     if (trigger.tagName === "A") {
-      event.preventDefault();
+      var href = trigger.getAttribute("href");
+      if (!href || href === "#") {
+        event.preventDefault();
+      }
     }
     handler(trigger);
   });
@@ -643,6 +663,7 @@
     setTheme(saved === "dark", false);
 
     collectCards();
+    setCategoryCounts();
     applyFilters();
 
     var size = qs('[data-action="size"]');

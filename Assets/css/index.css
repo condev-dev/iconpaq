@@ -67,59 +67,91 @@ main {
   font-size: 16px;
 }
 .Customize_Panel .List_Title {
-  color: var(--ip-text);
-  display: block;
+  align-items: center;
+  color: var(--ip-text-soft);
+  display: flex;
   font-family: "Outfit", "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
-  margin: 0 0 8px 2px;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px 4px;
+  text-transform: uppercase;
+}
+.Customize_Panel .List_Title i {
+  color: var(--ip-accent) !important;
+  font-size: 10px;
+  margin-left: 0 !important;
+  margin-right: 8px !important;
 }
 .Customize_Panel #Category_List {
   background-color: var(--ip-surface) !important;
+  border-radius: 12px;
   overflow: visible;
+  padding: 6px;
 }
 .Customize_Panel .Switch {
+  align-items: center;
   background-color: transparent !important;
   border: 0 !important;
-  border-radius: 10px;
+  border-radius: 8px;
   color: var(--ip-text) !important;
   cursor: pointer;
+  display: flex;
   font-size: 13px;
-  margin-bottom: 3px;
-  padding: 9px 12px 9px 28px !important;
+  font-weight: 500;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  padding: 9px 10px 9px 26px !important;
   position: relative;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 .Customize_Panel .Switch::before {
   background-color: var(--ip-text-soft);
-  border-radius: 50%;
+  border-radius: 999px;
   content: "";
   height: 6px;
-  left: 13px;
+  left: 11px;
   margin-top: -3px;
   position: absolute;
   top: 50%;
   transition: background-color 0.2s ease, transform 0.2s ease;
   width: 6px;
 }
+.Customize_Panel .Switch::after {
+  color: var(--ip-text-soft);
+  content: attr(data-count);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  margin-left: 8px;
+  transition: color 0.2s ease;
+}
 .Customize_Panel .Switch:hover {
   background-color: var(--ip-accent-soft) !important;
   color: var(--ip-accent) !important;
 }
+.Customize_Panel .Switch:hover::before {
+  background-color: var(--ip-accent);
+}
 .Customize_Panel .Switch.NewGray {
   background-color: var(--ip-accent) !important;
+  box-shadow: 0 6px 14px rgba(104, 90, 211, 0.28);
   color: var(--ip-on-accent) !important;
   font-weight: 600;
 }
 .Customize_Panel .Switch.NewGray::before {
   background-color: var(--ip-on-accent);
-  transform: scale(1.3);
+  transform: scale(1.25);
+}
+.Customize_Panel .Switch.NewGray::after {
+  color: var(--ip-on-accent);
+  opacity: 0.8;
 }
 .Customize_Panel #Category_List .Switch:first-child {
   border-bottom: 1px solid var(--ip-border) !important;
-  border-radius: 10px 10px 0 0;
-  margin-bottom: 8px;
-  padding-bottom: 14px !important;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 6px;
+  padding-bottom: 12px !important;
 }
 .Customize_Panel .Reset_Button {
   background: transparent;
@@ -345,23 +377,28 @@ main {
 }
 
 .Icon_Variants {
-  gap: 10px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(34px, 54px));
+  justify-content: center;
   padding: 6px 2px;
 }
 .Icon_Variants .Item-Carousel {
   align-items: center;
+  aspect-ratio: 1 / 1;
   background-color: var(--ip-surface);
   border: 1px solid transparent;
-  border-radius: 14px;
+  border-radius: 12px;
   display: flex;
-  flex: 0 0 auto;
-  height: 54px;
   justify-content: center;
+  min-width: 0;
   transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-  width: 54px;
+  width: 100%;
 }
 .Icon_Variants .Item-Carousel svg {
   height: 26px;
+  max-height: 100%;
+  max-width: 100%;
   width: 26px;
 }
 .Icon_Variants .Item-Carousel:hover {
