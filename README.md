@@ -5,6 +5,8 @@ Designed with **clean spacing, live SVG customization, several drawing styles pe
 
 > ⚡ **Portfolio-Level Project** – Showcasing Senior Front-End expertise in **icon system design, live SVG manipulation, themeable design tokens and reusable component structure**.
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-8d43f5?style=for-the-badge&logo=vercel&logoColor=white)](https://iconpaq.vercel.app/)
+
 ---
 
 ## 🛠 Tech Stack
@@ -85,14 +87,6 @@ Designed with **clean spacing, live SVG customization, several drawing styles pe
 *Three icons per row and side by side hero buttons, down to a 390px viewport.*
 
 <img src="https://raw.githubusercontent.com/condev-dev/iconpaq/main/Assets/img/preview/Mobile-Demo.png" width="320" alt="Mobile">
-
----
-
-### 📱 Icon Details On Mobile
-
-*The dialog stacks into a single column and scrolls inside itself.*
-
-<img src="https://raw.githubusercontent.com/condev-dev/iconpaq/main/Assets/img/preview/Mobile-Details.png" width="320" alt="Icon Details On Mobile">
 
 </div>
 
