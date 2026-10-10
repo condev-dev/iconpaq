@@ -1,0 +1,22 @@
+{
+  "name": "IconPaq — Free Outline Icon Library",
+  "short_name": "IconPaq",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "theme_color": "#685AD3",
+  "background_color": "#16161e",
+  "icons": [
+    {
+      "src": "/Assets/img/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Assets/img/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# robots.txt — https://iconpaq.condev.ir/
+User-agent: *
+Allow: /
+
+Sitemap: https://iconpaq.condev.ir/sitemap.xml

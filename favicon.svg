@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="IconPaq">
+  <title>IconPaq</title>
+  <mask id="face" maskUnits="userSpaceOnUse" x="0" y="0" width="128" height="128">
+    <rect width="128" height="128" fill="#fff"/>
+    <circle cx="47.4" cy="54.94" r="6.8" fill="#000"/>
+    <circle cx="80.6" cy="54.94" r="6.8" fill="#000"/>
+    <path d="M33.84 79.06 Q64 106.24 94.16 79.06" fill="none" stroke="#000"
+          stroke-width="10.56" stroke-linecap="round"/>
+  </mask>
+  <circle cx="64" cy="64" r="58.88" fill="#685AD3" mask="url(#face)"/>
+</svg>
