@@ -588,6 +588,27 @@
     handler(trigger);
   });
 
+  /* Keyboard parity for the custom controls: the markup already marks the
+     toolbar and the category list as buttons and tabs to them, so Enter and
+     Space have to activate them exactly like a click does. Native controls
+     keep their own built in behaviour and are skipped. */
+  var NATIVE_ACTIVATION = ["A", "BUTTON", "INPUT", "SELECT", "SUMMARY", "TEXTAREA"];
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter" && event.key !== " " && event.key !== "Spacebar") {
+      return;
+    }
+    var trigger = actionTarget(event);
+    if (!trigger || NATIVE_ACTIVATION.indexOf(trigger.tagName) > -1) {
+      return;
+    }
+    if (trigger.getAttribute("role") !== "button") {
+      return;
+    }
+    event.preventDefault();
+    trigger.click();
+  });
+
   document.addEventListener("input", function (event) {
     var trigger = actionTarget(event);
     if (!trigger) {
