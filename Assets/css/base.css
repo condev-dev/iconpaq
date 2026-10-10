@@ -374,24 +374,31 @@ header.navbar .SocialMediaIcon_Navbar_Active p {
 }
 
 .Field_Value {
-  align-items: center;
   background-color: var(--ip-surface) !important;
   border: 0 !important;
   border-radius: 10px !important;
   box-shadow: none !important;
   color: var(--ip-text) !important;
   cursor: text;
+  display: block;
   font-size: 13px;
   height: auto;
+  max-width: 100%;
   min-height: 42px;
   min-width: 0;
-  padding: 10px 12px;
+  overflow: hidden;
+  padding: 11px 38px 11px 12px;
+  position: relative;
 }
 .Field_Value p,
 .Field_Value small {
   color: var(--ip-text) !important;
+  display: block;
   margin: 0;
+  max-width: 100%;
   min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .Field_Value i {
   color: var(--ip-text-soft) !important;
@@ -400,6 +407,13 @@ header.navbar .SocialMediaIcon_Navbar_Active p {
 }
 .Field_Value i:hover {
   color: var(--ip-accent) !important;
+}
+
+.Copy_Btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .Toast_Host {

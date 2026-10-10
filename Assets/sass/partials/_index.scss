@@ -470,6 +470,7 @@ main {
 .Icon_Preview_Wrap,
 .Icon_Options,
 .Icon_Code {
+  max-width: 100%;
   min-width: 0;
   overflow: hidden;
 }
@@ -478,9 +479,6 @@ main {
 .Icon_Code > * {
   max-width: 100%;
   min-width: 0;
-}
-
-.Icon_Code .Field_Value {
   overflow: hidden;
 }
 
