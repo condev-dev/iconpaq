@@ -1,0 +1,554 @@
+@use "vars" as *;
+
+// -----------------------------------------------------------------------------
+// IconPaq — home page
+// Hero, customize panel, icon grid, toolbar and the icon detail modal.
+// -----------------------------------------------------------------------------
+
+main {
+  overflow: hidden;
+  position: relative;
+}
+
+// --- Hero --------------------------------------------------------------------
+
+.Intro {
+  background-color: var(--ip-surface) !important;
+  border: 0;
+  border-radius: $radius;
+  overflow: hidden;
+
+  .Intro_Text {
+    color: var(--ip-text-soft);
+    max-width: 56ch;
+  }
+
+  .Intro_Visual img {
+    filter: drop-shadow(0 24px 40px rgba(35, 34, 48, 0.12));
+  }
+}
+
+.Intro_Actions {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  padding-top: 34px;
+
+  a {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .Intro_Actions {
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (max-width: 575.98px) {
+  .Intro_Actions {
+    gap: 8px;
+    padding-top: 26px;
+
+    a {
+      flex: 1 1 0;
+      font-size: 13px;
+      padding-left: 8px;
+      padding-right: 8px;
+
+      span {
+        margin-left: 4px !important;
+        margin-right: 4px !important;
+      }
+    }
+  }
+}
+
+// --- Two column layout -------------------------------------------------------
+
+.Sidebar {
+  flex: 0 0 25%;
+  min-width: 220px;
+  padding-right: 18px;
+}
+
+.Content {
+  align-self: stretch;
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+// --- Customize panel ---------------------------------------------------------
+
+.Customize_Panel {
+  h6 {
+    font-size: 16px;
+  }
+
+  .List_Title {
+    color: var(--ip-text);
+    display: block;
+    font-family: $font-display;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 8px 2px;
+  }
+
+  #Category_List {
+    background-color: var(--ip-surface) !important;
+    overflow: visible;
+  }
+
+  .Switch {
+    background-color: transparent !important;
+    border: 0 !important;
+    border-radius: $radius-sm;
+    color: var(--ip-text) !important;
+    cursor: pointer;
+    font-size: 13px;
+    margin-bottom: 3px;
+    padding: 9px 12px 9px 28px !important;
+    position: relative;
+    transition: background-color $transition, color $transition;
+
+    &::before {
+      background-color: var(--ip-text-soft);
+      border-radius: 50%;
+      content: "";
+      height: 6px;
+      left: 13px;
+      margin-top: -3px;
+      position: absolute;
+      top: 50%;
+      transition: background-color $transition, transform $transition;
+      width: 6px;
+    }
+
+    &:hover {
+      background-color: var(--ip-accent-soft) !important;
+      color: var(--ip-accent) !important;
+    }
+
+    &.NewGray {
+      background-color: var(--ip-accent) !important;
+      color: var(--ip-on-accent) !important;
+      font-weight: 600;
+
+      &::before {
+        background-color: var(--ip-on-accent);
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  #Category_List .Switch:first-child {
+    border-bottom: 1px solid var(--ip-border) !important;
+    border-radius: $radius-sm $radius-sm 0 0;
+    margin-bottom: 8px;
+    padding-bottom: 14px !important;
+  }
+
+  .Reset_Button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+
+  .Reset_Button:hover small {
+    color: var(--ip-accent) !important;
+  }
+}
+
+// --- Toolbar -----------------------------------------------------------------
+
+.Toolbar {
+  .SearchInput {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    color: var(--ip-text) !important;
+    font-size: 15px;
+    min-width: 170px;
+    padding-left: 0;
+
+    &::placeholder {
+      color: var(--ip-text-soft) !important;
+    }
+
+    &:focus {
+      box-shadow: none !important;
+      outline: none;
+    }
+  }
+
+  .Tool_Btn {
+    color: var(--ip-text-soft);
+    transition: color $transition;
+
+    small {
+      font-weight: 500;
+    }
+
+    &:hover,
+    &.Is_Active {
+      color: var(--ip-accent);
+    }
+  }
+
+  .dropdown-menu {
+    background-color: var(--ip-bg);
+    border: 1px solid var(--ip-border);
+    border-radius: $radius-sm;
+    box-shadow: var(--ip-shadow);
+    padding: 6px 10px;
+  }
+
+  .dropdown-item:hover {
+    background-color: var(--ip-accent-soft);
+    color: var(--ip-accent);
+  }
+}
+
+.Result_Count {
+  color: var(--ip-text-soft);
+  font-size: 13px;
+}
+
+// --- Icon grid ---------------------------------------------------------------
+
+.Container_Icons {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+}
+
+@media only screen and (max-width: 575.98px) {
+  .Container_Icons {
+    gap: 8px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+// Every card carries the alternative styles of its icon. They are only used to
+// build the style strip inside the dialog, so they stay out of the grid layout.
+.Icons_Button_Slider {
+  position: absolute;
+  visibility: hidden;
+}
+
+.Icon_Pack {
+  align-items: center;
+  border-radius: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 14px 8px 10px;
+  transition: background-color $transition, box-shadow $transition, transform $transition;
+
+  > div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .svg-icon {
+    height: var(--ip-icon-size);
+    width: var(--ip-icon-size);
+  }
+
+  // Stroke based icons follow the "Stroke width" control in the sidebar.
+  .svg-icon [stroke] {
+    stroke-width: var(--ip-icon-stroke);
+  }
+
+  .Icon_Text {
+    margin-top: 10px;
+    max-width: 100%;
+
+    small {
+      color: var(--ip-text-soft);
+      display: block;
+      font-size: 10px;
+      line-height: 1.3;
+      overflow: hidden;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .Utils {
+    display: flex;
+    gap: 4px;
+    margin-top: 6px;
+    visibility: hidden;
+
+    small {
+      border-radius: 6px;
+      display: inline-block;
+      font-size: 9px;
+      line-height: 1;
+      margin: 0;
+      padding: 4px 6px;
+    }
+  }
+
+  &:hover {
+    background-color: var(--ip-surface);
+    box-shadow: 0 10px 24px rgba(35, 34, 48, 0.08);
+    transform: translateY(-2px);
+
+    .Utils {
+      visibility: visible;
+    }
+  }
+
+  &.Icon_Pack_Selected {
+    background-color: var(--ip-accent-soft);
+    box-shadow: inset 0 0 0 1px var(--ip-accent);
+  }
+}
+
+// Touch devices never fire :hover, so keep the format chips visible.
+@media (hover: none) {
+  .Icon_Pack .Utils {
+    visibility: visible;
+  }
+}
+
+// --- Back to top -------------------------------------------------------------
+
+.To_Top {
+  align-items: center;
+  background-color: var(--ip-surface) !important;
+  border: 1px solid var(--ip-border);
+  border-radius: 50% !important;
+  color: var(--ip-text) !important;
+  display: inline-flex !important;
+  height: 46px;
+  justify-content: center;
+  transition: background-color $transition, border-color $transition, color $transition, transform $transition;
+  width: 46px;
+
+  i {
+    font-size: 15px;
+  }
+
+  &:hover {
+    background-color: var(--ip-accent) !important;
+    border-color: var(--ip-accent);
+    color: #fff !important;
+    transform: translateY(-2px);
+  }
+}
+
+// --- Multi select pill -------------------------------------------------------
+
+.MultipleSelect_Menu {
+  background-color: var(--ip-bg);
+  border: 1px solid var(--ip-border);
+  border-radius: $radius 0 0 $radius;
+  box-shadow: -12px 0 30px rgba(35, 34, 48, 0.14);
+  opacity: 0;
+  padding: 10px 14px;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 24px));
+  transition: opacity $transition, transform 0.28s ease;
+  z-index: 950;
+
+  &.Is_Visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .BtnGray {
+    min-width: 132px;
+  }
+}
+
+// --- Icon detail modal -------------------------------------------------------
+
+#exampleModal {
+  .modal-content {
+    background-color: var(--ip-bg) !important;
+    border: 1px solid var(--ip-border);
+    border-radius: $radius;
+    box-shadow: var(--ip-shadow);
+  }
+
+  .close {
+    opacity: 0.6;
+    position: absolute;
+    right: 14px;
+    top: 10px;
+    z-index: 2;
+
+    span {
+      color: var(--ip-text);
+      font-size: 26px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .modal-body {
+    gap: 20px;
+  }
+}
+
+.Icon_Preview_Wrap {
+  .image {
+    background-color: var(--ip-surface);
+    border-radius: $radius;
+    margin-top: 0 !important;
+    padding: 22px 12px !important;
+  }
+}
+
+#ConImageChange {
+  height: 120px;
+  width: 120px;
+
+  [stroke] {
+    stroke-width: var(--ip-icon-stroke);
+  }
+}
+
+.Icon_Variants {
+  gap: 10px;
+  padding: 6px 2px;
+
+  .Item-Carousel {
+    align-items: center;
+    background-color: var(--ip-surface);
+    border: 1px solid transparent;
+    border-radius: 14px;
+    display: flex;
+    flex: 0 0 auto;
+    height: 54px;
+    justify-content: center;
+    transition: background-color $transition, border-color $transition, transform $transition;
+    width: 54px;
+
+    svg {
+      height: 26px;
+      width: 26px;
+    }
+
+    &:hover {
+      border-color: var(--ip-accent);
+      transform: translateY(-2px);
+    }
+
+    &.Is_Active {
+      background-color: var(--ip-accent-soft);
+      border-color: var(--ip-accent);
+    }
+  }
+}
+
+.Icon_Options,
+.Icon_Code {
+  min-width: 0;
+  width: 100%;
+}
+
+// `min-width: 0` has to reach every flex item between the long, nowrap code
+// values and the dialog, otherwise the automatic minimum size wins and the
+// field stretches to the full width of the SVG source.
+.Icon_Preview_Wrap,
+.Icon_Options,
+.Icon_Code {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.Icon_Options > *,
+.Icon_Code > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.Icon_Code .Field_Value {
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 992px) {
+  .Icon_Preview_Wrap {
+    flex: 0 0 190px;
+  }
+
+  .Icon_Options {
+    flex: 0 0 175px;
+    width: 175px;
+  }
+
+  .Icon_Code {
+    flex: 0 0 235px;
+    width: 235px;
+  }
+}
+
+@media only screen and (max-width: 991.98px) {
+  .Icon_Preview_Wrap,
+  .Icon_Options,
+  .Icon_Code {
+    overflow: visible;
+  }
+
+  #exampleModal .modal-content {
+    max-height: calc(100vh - 1rem);
+    overflow-y: auto;
+    padding: 16px !important;
+  }
+
+  #exampleModal .modal-body {
+    gap: 18px;
+  }
+}
+
+#svg_Code {
+  display: block;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Component_Box {
+  background-color: var(--ip-surface) !important;
+  border: 0 !important;
+  border-radius: $radius-sm !important;
+  box-shadow: none !important;
+  height: 115px;
+
+  p {
+    color: var(--ip-text) !important;
+    font-size: 12px;
+    max-height: 95px;
+    min-width: 0;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+
+  i {
+    color: var(--ip-text-soft) !important;
+  }
+
+  i:hover {
+    color: var(--ip-accent) !important;
+  }
+}

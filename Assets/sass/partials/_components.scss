@@ -1,0 +1,419 @@
+@use "vars" as *;
+
+// -----------------------------------------------------------------------------
+// IconPaq — shared components
+// Header, footer, buttons, form controls, chips and notifications.
+// -----------------------------------------------------------------------------
+
+// --- Header ------------------------------------------------------------------
+
+header.navbar {
+  align-items: center;
+  padding: 18px 0 10px;
+
+  .navbar-brand {
+    padding: 0;
+
+    img {
+      display: block;
+    }
+  }
+
+  .navbar-toggler {
+    color: var(--ip-text);
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .Line_Menu_Item {
+    color: var(--ip-text) !important;
+    font-family: $font-display;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 4px 0 6px;
+    position: relative;
+
+    &::before {
+      background-color: var(--ip-accent);
+      border-radius: $radius-pill;
+      bottom: 0;
+      content: "";
+      height: 2px;
+      left: 0;
+      position: absolute;
+      transition: width $transition;
+      width: 0;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  .Active_Item_MainMenu::before {
+    width: 100%;
+  }
+
+  .SocialMediaIcon_Navbar {
+    align-items: center;
+    background-color: var(--ip-surface);
+    border: 0;
+    border-radius: $radius-pill;
+    color: var(--ip-text) !important;
+    cursor: pointer;
+    display: flex;
+    font: inherit;
+    height: 35px;
+    justify-content: center;
+    margin: 0 6px;
+    min-width: 35px;
+    overflow: hidden;
+    padding: 0 8px;
+    transition: background-color $transition, color $transition, width $transition;
+    width: 35px;
+
+    i {
+      font-size: 17px;
+    }
+
+    p {
+      color: inherit !important;
+      display: none;
+      font-size: 14px;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      background-color: var(--ip-accent);
+      color: #fff !important;
+      width: 112px;
+
+      p {
+        color: #fff !important;
+        display: inline-block;
+      }
+    }
+  }
+
+  .SocialMediaIcon_Navbar_Active {
+    width: 112px;
+
+    p {
+      display: inline-block;
+    }
+  }
+}
+
+// --- Buttons -----------------------------------------------------------------
+
+.BtnPurple,
+.BtnGray,
+.BtnOutline {
+  align-items: center;
+  border: 0;
+  border-radius: $radius-sm;
+  display: inline-flex;
+  font-family: $font-display;
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: center;
+  padding: 9px 16px;
+  transition: background-color $transition, box-shadow $transition, color $transition, transform $transition;
+
+  i {
+    font-size: 15px;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px var(--ip-accent-soft);
+  }
+}
+
+.BtnPurple {
+  background-color: var(--ip-accent) !important;
+  color: var(--ip-on-accent) !important;
+
+  &:hover {
+    box-shadow: 0 10px 20px rgba(104, 90, 211, 0.32);
+    color: var(--ip-on-accent) !important;
+    transform: translateY(-1px);
+  }
+}
+
+.BtnGray {
+  background-color: var(--ip-surface-strong) !important;
+  color: var(--ip-text) !important;
+
+  &:hover {
+    box-shadow: var(--ip-shadow);
+    color: var(--ip-text) !important;
+    transform: translateY(-1px);
+  }
+}
+
+.BtnOutline {
+  background-color: transparent !important;
+  border: 1px solid var(--ip-border);
+  color: var(--ip-text) !important;
+
+  &:hover {
+    border-color: var(--ip-accent);
+    color: var(--ip-accent) !important;
+    transform: translateY(-1px);
+  }
+}
+
+// --- Range slider ------------------------------------------------------------
+
+.Range_Label {
+  align-items: center;
+  color: var(--ip-text-soft);
+  display: flex;
+  font-size: 13px;
+  justify-content: space-between;
+  margin-bottom: 4px;
+
+  b {
+    color: var(--ip-text);
+    font-family: $font-display;
+    font-weight: 600;
+  }
+}
+
+.Range_Slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--ip-surface-strong);
+  background-image: linear-gradient(var(--ip-accent), var(--ip-accent));
+  background-repeat: no-repeat;
+  background-size: var(--ip-fill, 50%) 100%;
+  border: 0;
+  border-radius: $radius-pill;
+  cursor: pointer;
+  height: 6px;
+  margin: 6px 0 0;
+  outline: none;
+  padding: 0;
+  width: 100%;
+
+  &:focus {
+    box-shadow: 0 0 0 3px var(--ip-accent-soft);
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--ip-bg);
+    border: 3px solid var(--ip-accent);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(104, 90, 211, 0.4);
+    height: 16px;
+    transition: transform $transition;
+    width: 16px;
+  }
+
+  &:active::-webkit-slider-thumb {
+    transform: scale(1.15);
+  }
+
+  &::-moz-range-thumb {
+    background-color: var(--ip-bg);
+    border: 3px solid var(--ip-accent);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(104, 90, 211, 0.4);
+    height: 16px;
+    width: 16px;
+  }
+
+  &::-moz-range-track {
+    background: transparent;
+    border-radius: $radius-pill;
+    height: 6px;
+  }
+}
+
+// --- Colour swatch -----------------------------------------------------------
+
+.Color_Input {
+  background-color: transparent;
+  border: 1px solid var(--ip-border);
+  border-radius: $radius-sm;
+  cursor: pointer;
+  height: 34px;
+  padding: 3px;
+  width: 58px;
+
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+
+  &::-webkit-color-swatch {
+    border: 0;
+    border-radius: 6px;
+  }
+
+  &::-moz-color-swatch {
+    border: 0;
+    border-radius: 6px;
+  }
+}
+
+// --- Read-only copy fields ---------------------------------------------------
+
+.Field_Label {
+  color: var(--ip-text-soft);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.Field_Value {
+  align-items: center;
+  background-color: var(--ip-surface) !important;
+  border: 0 !important;
+  border-radius: $radius-sm !important;
+  box-shadow: none !important;
+  color: var(--ip-text) !important;
+  cursor: text;
+  font-size: 13px;
+  height: auto;
+  min-height: 42px;
+  min-width: 0;
+  padding: 10px 12px;
+
+  p,
+  small {
+    color: var(--ip-text) !important;
+    margin: 0;
+    min-width: 0;
+  }
+
+  i {
+    color: var(--ip-text-soft) !important;
+    flex: 0 0 auto;
+    margin-left: 8px;
+  }
+
+  i:hover {
+    color: var(--ip-accent) !important;
+  }
+}
+
+// --- Notification ------------------------------------------------------------
+
+.Toast_Host {
+  background-color: var(--ip-accent);
+  border-radius: $radius-pill;
+  bottom: 28px;
+  box-shadow: 0 14px 30px rgba(35, 34, 48, 0.3);
+  color: #fff;
+  font-family: $font-display;
+  font-size: 14px;
+  left: 50%;
+  opacity: 0;
+  padding: 10px 20px;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, 16px);
+  transition: opacity $transition, transform $transition;
+  z-index: 2000;
+
+  &.Is_Visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+// --- Footer ------------------------------------------------------------------
+
+footer {
+  .Footer_SocialMedia {
+    a {
+      align-items: center;
+      background-color: var(--ip-surface-strong);
+      border-radius: 50%;
+      color: var(--ip-text) !important;
+      display: inline-flex;
+      height: 38px;
+      justify-content: center;
+      margin: 0 6px;
+      transition: background-color $transition, color $transition, transform $transition;
+      width: 38px;
+
+      i {
+        font-size: 17px;
+      }
+
+      &:hover {
+        background-color: var(--ip-accent);
+        color: #fff !important;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .Footer_Links {
+    a {
+      color: var(--ip-text-soft) !important;
+      font-size: 14px;
+
+      &:hover {
+        color: var(--ip-accent) !important;
+      }
+    }
+  }
+
+  .Link_Plain {
+    color: var(--ip-text) !important;
+
+    &:hover {
+      color: var(--ip-accent) !important;
+    }
+  }
+
+  h6 {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+// --- Utility classes used across the markup ----------------------------------
+
+.Bold {
+  font-weight: 700 !important;
+}
+
+.Pointer {
+  cursor: pointer !important;
+}
+
+.Color_Gray {
+  color: var(--ip-text-soft) !important;
+}
+
+.Color_Purple {
+  color: var(--ip-accent) !important;
+}
+
+.bg-Gray {
+  background-color: var(--ip-surface) !important;
+}
+
+.bg-purple {
+  background-color: var(--ip-accent) !important;
+  color: var(--ip-on-accent) !important;
+}
+
+.bg-hight-Gary {
+  background-color: var(--ip-surface-strong) !important;
+  color: var(--ip-text) !important;
+}
+
+.text-black-50 {
+  color: var(--ip-text-soft) !important;
+}
+
+.rounded-lg {
+  border-radius: $radius-sm !important;
+}

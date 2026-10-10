@@ -1,0 +1,134 @@
+@use "vars" as *;
+
+// -----------------------------------------------------------------------------
+// IconPaq — "Suggest an icon" page
+// -----------------------------------------------------------------------------
+
+.Request_Panel {
+  background-color: var(--ip-surface) !important;
+  border-radius: $radius;
+
+  h3 {
+    font-size: 30px;
+  }
+
+  .Intro_Text {
+    color: var(--ip-text-soft);
+  }
+}
+
+.Request_Card {
+  background-color: var(--ip-bg);
+  border: 1px solid var(--ip-border);
+  border-radius: $radius;
+  box-shadow: var(--ip-shadow);
+  gap: 28px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1060px;
+}
+
+.Message_Note {
+  color: var(--ip-text-soft);
+  font-size: 12px;
+}
+
+.Request_Aside {
+  background-color: var(--ip-accent) !important;
+  border-radius: $radius-sm;
+  flex: 0 0 360px;
+  max-width: 360px;
+  overflow: hidden;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  small,
+  a,
+  i,
+  span {
+    color: var(--ip-on-accent) !important;
+  }
+
+  .Contact_Row {
+    align-items: flex-start;
+    display: flex;
+
+    i {
+      margin-top: 3px;
+      width: 20px;
+    }
+
+    a {
+      text-decoration: underline !important;
+      text-underline-offset: 3px;
+
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
+
+  .SocialMedia {
+    i {
+      border: 1px solid rgba(247, 247, 251, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 15px;
+      padding: 10px;
+      transition: background-color $transition, color $transition;
+
+      &:hover {
+        background-color: var(--ip-on-accent);
+        color: var(--ip-accent) !important;
+      }
+    }
+  }
+
+  .Aside_Art {
+    bottom: 0;
+    max-height: 42%;
+    opacity: 0.9;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.Request_Form {
+  .form-control {
+    background-color: var(--ip-surface) !important;
+    border: 1px solid transparent !important;
+    border-radius: $radius-sm !important;
+    color: var(--ip-text) !important;
+    font-size: 14px;
+    transition: border-color $transition, box-shadow $transition;
+
+    &::placeholder {
+      color: var(--ip-text-soft) !important;
+    }
+
+    &:focus {
+      border-color: var(--ip-accent) !important;
+      box-shadow: 0 0 0 3px var(--ip-accent-soft) !important;
+      outline: none;
+    }
+  }
+
+  label {
+    color: var(--ip-text-soft);
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+}
+
+@media only screen and (max-width: 991.98px) {
+  .Request_Aside {
+    flex: 1 1 auto;
+    margin-right: 0 !important;
+    max-width: none;
+  }
+}

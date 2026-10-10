@@ -1,0 +1,111 @@
+.Request_Panel {
+  background-color: var(--ip-surface) !important;
+  border-radius: 16px;
+}
+.Request_Panel h3 {
+  font-size: 30px;
+}
+.Request_Panel .Intro_Text {
+  color: var(--ip-text-soft);
+}
+
+.Request_Card {
+  background-color: var(--ip-bg);
+  border: 1px solid var(--ip-border);
+  border-radius: 16px;
+  box-shadow: var(--ip-shadow);
+  gap: 28px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1060px;
+}
+
+.Message_Note {
+  color: var(--ip-text-soft);
+  font-size: 12px;
+}
+
+.Request_Aside {
+  background-color: var(--ip-accent) !important;
+  border-radius: 10px;
+  flex: 0 0 360px;
+  max-width: 360px;
+  overflow: hidden;
+}
+.Request_Aside h1,
+.Request_Aside h2,
+.Request_Aside h3,
+.Request_Aside h4,
+.Request_Aside h5,
+.Request_Aside h6,
+.Request_Aside p,
+.Request_Aside small,
+.Request_Aside a,
+.Request_Aside i,
+.Request_Aside span {
+  color: var(--ip-on-accent) !important;
+}
+.Request_Aside .Contact_Row {
+  align-items: flex-start;
+  display: flex;
+}
+.Request_Aside .Contact_Row i {
+  margin-top: 3px;
+  width: 20px;
+}
+.Request_Aside .Contact_Row a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+.Request_Aside .Contact_Row a:hover {
+  opacity: 0.85;
+}
+.Request_Aside .SocialMedia i {
+  border: 1px solid rgba(247, 247, 251, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.Request_Aside .SocialMedia i:hover {
+  background-color: var(--ip-on-accent);
+  color: var(--ip-accent) !important;
+}
+.Request_Aside .Aside_Art {
+  bottom: 0;
+  max-height: 42%;
+  opacity: 0.9;
+  position: absolute;
+  right: 0;
+}
+
+.Request_Form .form-control {
+  background-color: var(--ip-surface) !important;
+  border: 1px solid transparent !important;
+  border-radius: 10px !important;
+  color: var(--ip-text) !important;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.Request_Form .form-control::placeholder {
+  color: var(--ip-text-soft) !important;
+}
+.Request_Form .form-control:focus {
+  border-color: var(--ip-accent) !important;
+  box-shadow: 0 0 0 3px var(--ip-accent-soft) !important;
+  outline: none;
+}
+.Request_Form label {
+  color: var(--ip-text-soft);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+@media only screen and (max-width: 991.98px) {
+  .Request_Aside {
+    flex: 1 1 auto;
+    margin-right: 0 !important;
+    max-width: none;
+  }
+}

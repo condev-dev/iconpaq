@@ -1,0 +1,457 @@
+main {
+  overflow: hidden;
+  position: relative;
+}
+
+.Intro {
+  background-color: var(--ip-surface) !important;
+  border: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.Intro .Intro_Text {
+  color: var(--ip-text-soft);
+  max-width: 56ch;
+}
+.Intro .Intro_Visual img {
+  filter: drop-shadow(0 24px 40px rgba(35, 34, 48, 0.12));
+}
+
+.Intro_Actions {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  padding-top: 34px;
+}
+.Intro_Actions a {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 992px) {
+  .Intro_Actions {
+    justify-content: flex-start;
+  }
+}
+@media only screen and (max-width: 575.98px) {
+  .Intro_Actions {
+    gap: 8px;
+    padding-top: 26px;
+  }
+  .Intro_Actions a {
+    flex: 1 1 0;
+    font-size: 13px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .Intro_Actions a span {
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+  }
+}
+.Sidebar {
+  flex: 0 0 25%;
+  min-width: 220px;
+  padding-right: 18px;
+}
+
+.Content {
+  align-self: stretch;
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+.Customize_Panel h6 {
+  font-size: 16px;
+}
+.Customize_Panel .List_Title {
+  color: var(--ip-text);
+  display: block;
+  font-family: "Outfit", "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 8px 2px;
+}
+.Customize_Panel #Category_List {
+  background-color: var(--ip-surface) !important;
+  overflow: visible;
+}
+.Customize_Panel .Switch {
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 10px;
+  color: var(--ip-text) !important;
+  cursor: pointer;
+  font-size: 13px;
+  margin-bottom: 3px;
+  padding: 9px 12px 9px 28px !important;
+  position: relative;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.Customize_Panel .Switch::before {
+  background-color: var(--ip-text-soft);
+  border-radius: 50%;
+  content: "";
+  height: 6px;
+  left: 13px;
+  margin-top: -3px;
+  position: absolute;
+  top: 50%;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width: 6px;
+}
+.Customize_Panel .Switch:hover {
+  background-color: var(--ip-accent-soft) !important;
+  color: var(--ip-accent) !important;
+}
+.Customize_Panel .Switch.NewGray {
+  background-color: var(--ip-accent) !important;
+  color: var(--ip-on-accent) !important;
+  font-weight: 600;
+}
+.Customize_Panel .Switch.NewGray::before {
+  background-color: var(--ip-on-accent);
+  transform: scale(1.3);
+}
+.Customize_Panel #Category_List .Switch:first-child {
+  border-bottom: 1px solid var(--ip-border) !important;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 8px;
+  padding-bottom: 14px !important;
+}
+.Customize_Panel .Reset_Button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.Customize_Panel .Reset_Button:hover small {
+  color: var(--ip-accent) !important;
+}
+
+.Toolbar .SearchInput {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--ip-text) !important;
+  font-size: 15px;
+  min-width: 170px;
+  padding-left: 0;
+}
+.Toolbar .SearchInput::placeholder {
+  color: var(--ip-text-soft) !important;
+}
+.Toolbar .SearchInput:focus {
+  box-shadow: none !important;
+  outline: none;
+}
+.Toolbar .Tool_Btn {
+  color: var(--ip-text-soft);
+  transition: color 0.2s ease;
+}
+.Toolbar .Tool_Btn small {
+  font-weight: 500;
+}
+.Toolbar .Tool_Btn:hover, .Toolbar .Tool_Btn.Is_Active {
+  color: var(--ip-accent);
+}
+.Toolbar .dropdown-menu {
+  background-color: var(--ip-bg);
+  border: 1px solid var(--ip-border);
+  border-radius: 10px;
+  box-shadow: var(--ip-shadow);
+  padding: 6px 10px;
+}
+.Toolbar .dropdown-item:hover {
+  background-color: var(--ip-accent-soft);
+  color: var(--ip-accent);
+}
+
+.Result_Count {
+  color: var(--ip-text-soft);
+  font-size: 13px;
+}
+
+.Container_Icons {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+}
+
+@media only screen and (max-width: 575.98px) {
+  .Container_Icons {
+    gap: 8px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.Icons_Button_Slider {
+  position: absolute;
+  visibility: hidden;
+}
+
+.Icon_Pack {
+  align-items: center;
+  border-radius: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 14px 8px 10px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.Icon_Pack > div {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.Icon_Pack .svg-icon {
+  height: var(--ip-icon-size);
+  width: var(--ip-icon-size);
+}
+.Icon_Pack .svg-icon [stroke] {
+  stroke-width: var(--ip-icon-stroke);
+}
+.Icon_Pack .Icon_Text {
+  margin-top: 10px;
+  max-width: 100%;
+}
+.Icon_Pack .Icon_Text small {
+  color: var(--ip-text-soft);
+  display: block;
+  font-size: 10px;
+  line-height: 1.3;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.Icon_Pack .Utils {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+  visibility: hidden;
+}
+.Icon_Pack .Utils small {
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 9px;
+  line-height: 1;
+  margin: 0;
+  padding: 4px 6px;
+}
+.Icon_Pack:hover {
+  background-color: var(--ip-surface);
+  box-shadow: 0 10px 24px rgba(35, 34, 48, 0.08);
+  transform: translateY(-2px);
+}
+.Icon_Pack:hover .Utils {
+  visibility: visible;
+}
+.Icon_Pack.Icon_Pack_Selected {
+  background-color: var(--ip-accent-soft);
+  box-shadow: inset 0 0 0 1px var(--ip-accent);
+}
+
+@media (hover: none) {
+  .Icon_Pack .Utils {
+    visibility: visible;
+  }
+}
+.To_Top {
+  align-items: center;
+  background-color: var(--ip-surface) !important;
+  border: 1px solid var(--ip-border);
+  border-radius: 50% !important;
+  color: var(--ip-text) !important;
+  display: inline-flex !important;
+  height: 46px;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  width: 46px;
+}
+.To_Top i {
+  font-size: 15px;
+}
+.To_Top:hover {
+  background-color: var(--ip-accent) !important;
+  border-color: var(--ip-accent);
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+.MultipleSelect_Menu {
+  background-color: var(--ip-bg);
+  border: 1px solid var(--ip-border);
+  border-radius: 16px 0 0 16px;
+  box-shadow: -12px 0 30px rgba(35, 34, 48, 0.14);
+  opacity: 0;
+  padding: 10px 14px;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 24px));
+  transition: opacity 0.2s ease, transform 0.28s ease;
+  z-index: 950;
+}
+.MultipleSelect_Menu.Is_Visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+.MultipleSelect_Menu .BtnGray {
+  min-width: 132px;
+}
+
+#exampleModal .modal-content {
+  background-color: var(--ip-bg) !important;
+  border: 1px solid var(--ip-border);
+  border-radius: 16px;
+  box-shadow: var(--ip-shadow);
+}
+#exampleModal .close {
+  opacity: 0.6;
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  z-index: 2;
+}
+#exampleModal .close span {
+  color: var(--ip-text);
+  font-size: 26px;
+}
+#exampleModal .close:hover {
+  opacity: 1;
+}
+#exampleModal .modal-body {
+  gap: 20px;
+}
+
+.Icon_Preview_Wrap .image {
+  background-color: var(--ip-surface);
+  border-radius: 16px;
+  margin-top: 0 !important;
+  padding: 22px 12px !important;
+}
+
+#ConImageChange {
+  height: 120px;
+  width: 120px;
+}
+#ConImageChange [stroke] {
+  stroke-width: var(--ip-icon-stroke);
+}
+
+.Icon_Variants {
+  gap: 10px;
+  padding: 6px 2px;
+}
+.Icon_Variants .Item-Carousel {
+  align-items: center;
+  background-color: var(--ip-surface);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  display: flex;
+  flex: 0 0 auto;
+  height: 54px;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  width: 54px;
+}
+.Icon_Variants .Item-Carousel svg {
+  height: 26px;
+  width: 26px;
+}
+.Icon_Variants .Item-Carousel:hover {
+  border-color: var(--ip-accent);
+  transform: translateY(-2px);
+}
+.Icon_Variants .Item-Carousel.Is_Active {
+  background-color: var(--ip-accent-soft);
+  border-color: var(--ip-accent);
+}
+
+.Icon_Options,
+.Icon_Code {
+  min-width: 0;
+  width: 100%;
+}
+
+.Icon_Preview_Wrap,
+.Icon_Options,
+.Icon_Code {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.Icon_Options > *,
+.Icon_Code > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.Icon_Code .Field_Value {
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 992px) {
+  .Icon_Preview_Wrap {
+    flex: 0 0 190px;
+  }
+  .Icon_Options {
+    flex: 0 0 175px;
+    width: 175px;
+  }
+  .Icon_Code {
+    flex: 0 0 235px;
+    width: 235px;
+  }
+}
+@media only screen and (max-width: 991.98px) {
+  .Icon_Preview_Wrap,
+  .Icon_Options,
+  .Icon_Code {
+    overflow: visible;
+  }
+  #exampleModal .modal-content {
+    max-height: calc(100vh - 1rem);
+    overflow-y: auto;
+    padding: 16px !important;
+  }
+  #exampleModal .modal-body {
+    gap: 18px;
+  }
+}
+#svg_Code {
+  display: block;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Component_Box {
+  background-color: var(--ip-surface) !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  height: 115px;
+}
+.Component_Box p {
+  color: var(--ip-text) !important;
+  font-size: 12px;
+  max-height: 95px;
+  min-width: 0;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+.Component_Box i {
+  color: var(--ip-text-soft) !important;
+}
+.Component_Box i:hover {
+  color: var(--ip-accent) !important;
+}

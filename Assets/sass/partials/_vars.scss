@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// IconPaq — shared Sass variables
+// Only values that never change between themes live here. Everything that
+// switches with the light / dark theme is a CSS custom property (see _Base.scss).
+// -----------------------------------------------------------------------------
+
+$font-body: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$font-display: "Outfit", $font-body;
+
+$radius-sm: 10px;
+$radius: 16px;
+$radius-pill: 999px;
+
+$transition: 0.2s ease;

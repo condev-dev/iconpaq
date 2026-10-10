@@ -1,0 +1,42 @@
+// -----------------------------------------------------------------------------
+// IconPaq — dark theme (compiles to Assets/css/theme-dark.css)
+// Loaded on every page. Everything is scoped to html.theme-dark, which the
+// theme switch toggles on the <html> element.
+// -----------------------------------------------------------------------------
+
+html.theme-dark {
+  --ip-bg: #232230;
+  --ip-surface: #2e3042;
+  --ip-surface-strong: #3c3e52;
+  --ip-text: #f2f2f8;
+  --ip-text-soft: #9c9cb4;
+  --ip-accent: #685ad3;
+  --ip-accent-soft: rgba(104, 90, 211, 0.24);
+  --ip-on-accent: #f7f7fb;
+  --ip-border: rgba(242, 242, 248, 0.14);
+  --ip-shadow: 0 16px 38px rgba(0, 0, 0, 0.4);
+}
+
+html.theme-dark {
+  color-scheme: dark;
+
+  .Intro .Intro_Visual img {
+    filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.45));
+  }
+
+  .Icon_Pack:hover {
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+  }
+
+  .BtnGray {
+    background-color: var(--ip-surface-strong) !important;
+  }
+
+  .modal-backdrop.show {
+    opacity: 0.72;
+  }
+
+  .Request_Aside {
+    background-color: #3b3383 !important;
+  }
+}

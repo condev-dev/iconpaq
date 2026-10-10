@@ -1,0 +1,6 @@
+// IconPaq — shared stylesheet (compiles to Assets/css/base.css)
+// Loaded by every page, before the page specific stylesheet.
+
+@use "partials/base";
+@use "partials/components";
+@use "partials/media";

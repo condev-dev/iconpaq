@@ -1,0 +1,165 @@
+@use "vars" as *;
+
+// -----------------------------------------------------------------------------
+// IconPaq — base
+// Fonts, design tokens and global element styles shared by every page.
+// -----------------------------------------------------------------------------
+
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fonts/Barlow-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Barlow-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Barlow-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Barlow-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/Barlow-Extra Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fonts/Outfit-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Outfit-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Outfit-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Outfit-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/Outfit-ExtraBold.woff") format("woff");
+}
+
+// Light theme is the default; theme-dark.css only swaps these values.
+:root {
+  --ip-bg: #ffffff;
+  --ip-surface: #f2f2f8;
+  --ip-surface-strong: #e5e4f2;
+  --ip-text: #56566f;
+  --ip-text-soft: #8b8ba3;
+  --ip-accent: #685ad3;
+  --ip-accent-soft: rgba(104, 90, 211, 0.12);
+  --ip-on-accent: #f7f7fb;
+  --ip-border: rgba(86, 86, 111, 0.14);
+  --ip-shadow: 0 14px 34px rgba(35, 34, 48, 0.1);
+
+  // Live icon controls (Size / Stroke width in the Customize panel).
+  --ip-icon-size: 30px;
+  --ip-icon-stroke: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ip-bg);
+  color: var(--ip-text);
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color $transition, color $transition;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--ip-text);
+  font-family: $font-display;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+a {
+  color: var(--ip-accent);
+  text-decoration: none !important;
+  transition: color $transition;
+}
+
+img {
+  max-width: 100%;
+}
+
+small {
+  color: inherit;
+}
+
+::selection {
+  background-color: var(--ip-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ip-accent);
+  outline-offset: 2px;
+}
+
+#Container {
+  margin: 0 auto;
+  max-width: 1480px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

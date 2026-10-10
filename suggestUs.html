@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Request a new icon for IconPaq. Tell us which icon is missing and how you plan to use it." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="IconPaq" />
+    <meta property="og:title" content="Suggest an Icon - IconPaq" />
+    <meta property="og:description" content="Request a new icon for IconPaq. Tell us which icon is missing and where you will use it." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#685AD3" />
+    <title>Suggest an Icon - IconPaq</title>
+    <link rel="icon" type="image/png" href="Assets/img/favicon.png" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="Assets/vendor/bootstrap/bootstrap.min.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="Assets/vendor/font-awesome/css/font-awesome.min.css" />
+
+    <!-- IconPaq -->
+    <link rel="stylesheet" href="Assets/css/base.css" />
+    <link rel="stylesheet" href="Assets/css/suggest.css" />
+    <link rel="stylesheet" href="Assets/css/theme-dark.css" />
+
+    <script>
+      try {
+        var storedTheme = localStorage.getItem("iconpaq-theme");
+        var wantsDark = storedTheme
+          ? storedTheme === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (wantsDark) {
+          document.documentElement.classList.add("theme-dark");
+        }
+      } catch (error) {}
+    </script>
+  </head>
+
+  <body id="top">
+    <div class="container-fluid" id="Container">
+      <header class="navbar navbar-expand-lg justify-content-between">
+        <i class="fa fa-bars d-lg-none navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></i>
+
+        <a class="navbar-brand ml-4 ml-lg-0 mt-3 mt-lg-0" href="index.html" aria-label="IconPaq home">
+          <img src="./Assets/img/LOGO.png" width="120" height="35" class="d-inline-block align-top" alt="IconPaq" />
+        </a>
+
+        <div class="d-flex justify-content-between order-lg-2">
+          <a class="d-flex align-items-center justify-content-center p-2 SocialMediaIcon_Navbar SocialMediaIcon_Navbar_Active" href="https://github.com/condev-dev" target="_blank" rel="noopener">
+            <p class="m-0 mr-2">GitHub</p>
+            <i class="fa fa-github"></i>
+          </a>
+
+          <a class="d-none d-lg-flex align-items-center justify-content-center p-2 SocialMediaIcon_Navbar" href="https://www.instagram.com/con.dev" target="_blank" rel="noopener">
+            <p class="m-0 mr-2">Instagram</p>
+            <i class="fa fa-instagram"></i>
+          </a>
+
+          <button type="button" class="d-none d-lg-flex align-items-center justify-content-center p-2 SocialMediaIcon_Navbar" data-action="toggle-theme" aria-label="Switch color theme">
+            <p class="m-0 mr-2">Dark</p>
+            <i class="fa fa-moon-o"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse d-lg-flex justify-content-center" id="navbarNav">
+          <ul class="navbar-nav" id="buttom_Line_Menu">
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link Line_Menu_Item" href="index.html" data-action="nav-active">Home</a>
+            </li>
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link Line_Menu_Item Active_Item_MainMenu" href="suggestUs.html" data-action="nav-active">Suggest an Icon</a>
+            </li>
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link Line_Menu_Item" href="https://cv.condev.ir" target="_blank" rel="noopener" data-action="nav-active">About</a>
+            </li>
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link Line_Menu_Item" href="https://www.instagram.com/con.dev" target="_blank" rel="noopener" data-action="nav-active">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <main class="my-5">
+        <section class="Request_Panel text-center p-4 p-lg-5">
+          <h3 class="m-0">Suggest an Icon</h3>
+          <p class="Intro_Text mt-3 mb-0">
+            Can&rsquo;t find the icon you need? Tell us what is missing and we will add it to the next release of the set.
+          </p>
+        </section>
+
+        <section class="Request_Card d-flex flex-column flex-lg-row justify-content-between p-3 p-lg-4 mt-4">
+          <aside class="Request_Aside bg-purple p-4 position-relative w-100 mr-lg-4 mb-4 mb-lg-0">
+            <h6 class="Bold m-0">Request Icon</h6>
+            <small class="d-inline-block mt-3">
+              Send over the icon name, the style you have in mind and where you plan to use it. Requests are usually reviewed within a few days and every accepted icon ships in the next release.
+            </small>
+
+            <div class="Contact_Row mt-4">
+              <i class="fa fa-github"></i>
+              <a href="https://github.com/condev-dev" target="_blank" rel="noopener">github.com/condev-dev</a>
+            </div>
+
+            <div class="Contact_Row mt-3">
+              <i class="fa fa-instagram"></i>
+              <a href="https://www.instagram.com/con.dev" target="_blank" rel="noopener">instagram.com/con.dev</a>
+            </div>
+
+            <div class="Contact_Row mt-3">
+              <i class="fa fa-link"></i>
+              <a href="https://cv.condev.ir" target="_blank" rel="noopener">cv.condev.ir</a>
+            </div>
+
+            <div class="mt-5 pt-3 d-flex flex-row flex-lg-column align-items-start SocialMedia">
+              <a href="https://github.com/condev-dev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github my-1 mx-lg-0 mx-1"></i></a>
+              <a href="https://www.instagram.com/con.dev" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram my-1 mx-lg-0 mx-1"></i></a>
+              <a href="https://cv.condev.ir" target="_blank" rel="noopener" aria-label="Portfolio and CV"><i class="fa fa-file-text-o my-1 mx-lg-0 mx-1"></i></a>
+            </div>
+
+            <img src="./Assets/img/Form_Image.png" alt="" class="Aside_Art img-fluid" />
+          </aside>
+
+          <form class="Request_Form flex-fill" onsubmit="return false">
+            <div class="d-flex flex-column flex-sm-row">
+              <div class="d-flex flex-column align-items-start w-100 mr-sm-3">
+                <label for="FirstName">First name</label>
+                <input type="text" class="form-control" id="FirstName" name="firstName" placeholder="Alex" autocomplete="given-name" />
+              </div>
+              <div class="d-flex flex-column align-items-start w-100 ml-sm-3 mt-3 mt-sm-0">
+                <label for="LastName">Last name</label>
+                <input type="text" class="form-control" id="LastName" name="lastName" placeholder="Morgan" autocomplete="family-name" />
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row mt-3">
+              <div class="d-flex flex-column align-items-start w-100 mr-sm-3">
+                <label for="BusinessType">Business type</label>
+                <input type="text" class="form-control" id="BusinessType" name="businessType" placeholder="Product design studio" />
+              </div>
+              <div class="d-flex flex-column align-items-start w-100 ml-sm-3 mt-3 mt-sm-0">
+                <label for="IconType">Icon type</label>
+                <input type="text" class="form-control" id="IconType" name="iconType" placeholder="Weather, outline style" />
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row mt-3">
+              <div class="d-flex flex-column align-items-start w-100 mr-sm-3">
+                <label for="Email">Email address</label>
+                <input type="email" class="form-control" id="Email" name="email" placeholder="alex@example.com" autocomplete="email" />
+              </div>
+              <div class="d-flex flex-column align-items-start w-100 ml-sm-3 mt-3 mt-sm-0">
+                <label for="Phone">Phone <span class="Color_Gray">(optional)</span></label>
+                <input type="tel" class="form-control" id="Phone" name="phone" placeholder="+1 555 0134" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="d-flex flex-column align-items-start mt-3">
+              <label for="Message">Message</label>
+              <textarea class="form-control" id="Message" name="message" rows="7" placeholder="Which icon are you missing and where will you use it?"></textarea>
+            </div>
+
+            <p class="Message_Note mt-3 mb-0">
+              This page is static, so the button below opens a direct message with the details you filled in.
+            </p>
+
+            <div class="mt-4 d-flex justify-content-end">
+              <a class="btn BtnPurple" href="https://www.instagram.com/con.dev" target="_blank" rel="noopener">
+                <span class="mx-2">Send Request</span>
+                <i class="fa fa-paper-plane mx-2"></i>
+              </a>
+            </div>
+          </form>
+        </section>
+      </main>
+
+      <footer class="mt-5 bg-Gray text-black-50">
+        <section class="d-flex justify-content-between p-5 flex-column flex-md-row align-items-center align-items-md-end">
+          <div class="d-flex flex-column align-items-center align-items-md-start">
+            <img src="./Assets/img/LOGO.png" alt="IconPaq" width="110" height="30" />
+
+            <div class="d-flex align-items-center mt-4">
+              <i class="fa fa-code mr-3"></i>
+              <p class="m-0">Designed and built by <span class="Bold">con.dev</span></p>
+            </div>
+
+            <a class="d-flex align-items-center mt-4 Link_Plain" href="https://cv.condev.ir" target="_blank" rel="noopener">
+              <i class="fa fa-link mr-3"></i>
+              <p class="m-0">cv.condev.ir</p>
+            </a>
+          </div>
+
+          <div class="Footer_SocialMedia d-flex align-items-end mt-5 mt-md-0">
+            <a href="https://github.com/condev-dev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+            <a href="https://www.instagram.com/con.dev" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+            <a href="https://cv.condev.ir" target="_blank" rel="noopener" aria-label="Portfolio and CV"><i class="fa fa-file-text-o"></i></a>
+          </div>
+        </section>
+
+        <section class="d-flex justify-content-between align-items-center border-top pt-4 pb-4 px-5 flex-column flex-md-row">
+          <h6 class="m-0"><span class="Bold">ICONPAQ</span> &copy; 2026</h6>
+          <div class="d-flex mt-2 mt-md-0 Footer_Links">
+            <a href="https://cv.condev.ir" target="_blank" rel="noopener" class="mx-2">Portfolio</a>
+            <a href="https://www.instagram.com/con.dev" target="_blank" rel="noopener" class="mx-2">Instagram</a>
+            <a href="https://github.com/condev-dev" target="_blank" rel="noopener" class="mx-2">GitHub</a>
+          </div>
+        </section>
+      </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="Assets/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="Assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!-- IconPaq -->
+    <script src="Assets/js/Custom.js"></script>
+
+    <div class="Toast_Host" id="Toast_Host" role="status" aria-live="polite"></div>
+  </body>
+</html>
