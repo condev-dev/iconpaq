@@ -19,7 +19,7 @@ main {
 
 .Intro_Actions {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 12px;
   padding-top: 34px;
 }
@@ -40,7 +40,7 @@ main {
     padding-top: 26px;
   }
   .Intro_Actions a {
-    flex: 1 1 0;
+    flex: 1 1 100%;
     font-size: 13px;
     padding-left: 8px;
     padding-right: 8px;

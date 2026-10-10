@@ -379,6 +379,12 @@ footer {
     }
   }
 
+  .Footer_Note {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 42ch;
+  }
+
   .Link_Plain {
     color: var(--ip-text) !important;
 

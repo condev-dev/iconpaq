@@ -465,6 +465,11 @@ footer .Footer_Links a {
 footer .Footer_Links a:hover {
   color: var(--ip-accent) !important;
 }
+footer .Footer_Note {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 42ch;
+}
 footer .Link_Plain {
   color: var(--ip-text) !important;
 }
@@ -548,6 +553,9 @@ footer h6 {
   }
   .Field_Value {
     min-height: 40px;
+  }
+  footer .Footer_Note {
+    text-align: center;
   }
 }
 @media (prefers-reduced-motion: reduce) {

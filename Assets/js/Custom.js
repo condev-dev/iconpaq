@@ -666,6 +666,12 @@
     setCategoryCounts();
     applyFilters();
 
+    /* Spell the library size out in the field, the way a real icon site does. */
+    var searchField = qs("#searchInput");
+    if (searchField) {
+      searchField.placeholder = "Search " + cards.length + " icons…";
+    }
+
     var size = qs('[data-action="size"]');
     var stroke = qs('[data-action="stroke"]');
     updateRangeFill(size);
